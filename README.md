@@ -1,0 +1,2 @@
+# Coding Challenge 15
+In this challenge, I will develop an interactive Risk Management Dashboard that helps businesses assess and manage various risks. I will use DOM manipulation to dynamically add, update, and remove risk assessments.
