@@ -23,6 +23,16 @@ function addRiskItem(riskName, riskLevel, department) {
         riskDashboard.removeChild(riskCard); // // Adding an event listener for the click event 
     });
 
+    // Task 4: Categorizing Risks by Level
+    // Modifying addRiskItem to apply different background colors based on risk level
+    if (riskLevel === "High") {
+        riskCard.style.backgroundColor = "#e07575"; // Red if high 
+    } else if (riskLevel === "Medium") {
+        riskCard.style.backgroundColor = "#f2e2a2"; // Yellow if medium 
+    } else if (riskLevel === "Low") {
+        riskCard.style.backgroundColor = "#b0e8a9"; // Green if low 
+    }
+
     riskDashboard.appendChild(riskCard); // Appending the card to the riskDashboard
     riskCard.appendChild(resolveButton); // Appending the resolve button to the dashboard 
 }
@@ -41,3 +51,5 @@ document.getElementById("riskForm").addEventListener("submit", (event) => {
 // Test cases
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
