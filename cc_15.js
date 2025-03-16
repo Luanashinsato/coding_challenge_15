@@ -20,7 +20,8 @@ function addRiskItem(riskName, riskLevel, department) {
     const resolveButton = document.createElement("button");
     resolveButton.textContent = "Resolve";
     resolveButton.addEventListener("click", (event) => {
-        riskDashboard.removeChild(riskCard); // // Adding an event listener for the click event 
+        riskDashboard.removeChild(riskCard); // Adding an event listener for the click event 
+        event.stopPropagation(); // Task 6: Handling Event Propagation
     });
 
     // Task 4: Categorizing Risks by Level
@@ -65,6 +66,7 @@ increaseRiskButton.addEventListener("click", (event) => {
             levelElement.textContent = "Level: High"; // Changing from Medium to High
             card.style.backgroundColor = "#e07575";
         } // High remains unchanged
+        event.stopPropagation(); // Task 6: Handling Event Propagation
     });
 });
 
