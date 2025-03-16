@@ -48,8 +48,32 @@ document.getElementById("riskForm").addEventListener("submit", (event) => {
     document.getElementById("riskForm").reset(); // Reseting the form fields
 });
 
+// Task 5: Implementing Bulk Updates
+// Adding a button to increase all risk levels
+const increaseRiskButton = document.createElement("button");
+increaseRiskButton.textContent = "Increase Risk Levels";
+increaseRiskButton.addEventListener("click", (event) => {
+    const riskCards = document.querySelectorAll(".riskCard"); // Selecting all risk cards
+    riskCards.forEach((card) => {
+        const levelElement = card.querySelector("p:nth-child(2)"); // Geting the level paragraph
+        let currentLevel = levelElement.textContent.split(": ")[1]; // Extracting the risk level
+        
+        if (currentLevel === "Low") {
+            levelElement.textContent = "Level: Medium"; // Changing from Low to Medium
+            card.style.backgroundColor = "#f2e2a2";
+        } else if (currentLevel === "Medium") {
+            levelElement.textContent = "Level: High"; // Changing from Medium to High
+            card.style.backgroundColor = "#e07575";
+        } // High remains unchanged
+    });
+});
+
+document.getElementById("riskDashboard").appendChild(increaseRiskButton); // Appending the button to the dashboard
+
 // Test cases
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+addRiskItem("Market Fluctuations", "High", "Finance");
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+addRiskItem("Employee Retention", "Low", "HR");
